@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import ScrollToTop from './components/ScrollToTop';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Services from './components/Services';
+import Recommend from './components/Recommend';
+import Testimonial from './components/Testimonial';
+import Footer from './components/Footer';
+import ScrollReveal from 'scrollreveal';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    useEffect(() => {
+        // const sr = scrollreveal({
+        //     origin: "top",
+        //     distance: "80px",
+        //     duration: 2000,
+        //     reset: true
+        // })
+        // sr.reveal(`
+        //     nav,
+        //     #hero,
+        //     #services,
+        //     #recommend,
+        //     #testimonials,
+        //     footer,
+        // `, {
+        //     opacity: 0, interval: 300
+        // })
+
+        ScrollReveal().reveal('.hero');
+        ScrollReveal().reveal('.tagline', { delay: 500 });
+        ScrollReveal().reveal('.punchline', { delay: 2000 });
+    }, []);
+
+    return (
+        <>
+            <ScrollToTop />
+            <Navbar />
+            <Hero />
+            <Services />
+            <Recommend />
+            <Testimonial />
+            <Footer />
+        </>
+    );
 }
 
 export default App;
